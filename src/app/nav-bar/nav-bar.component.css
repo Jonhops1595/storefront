@@ -1,8 +1,9 @@
 
-.nav{
-    background-color:lightgray
-}
 
 .nav-link{
     color:black
+}
+
+.dropdown{
+    cursor: pointer;
 }
