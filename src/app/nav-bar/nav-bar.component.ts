@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'nav-bar',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
