@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "store-mockup": {
+      "hosting": {
+        "storefront": [
+          "store-mockup"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "store-mockup"
+  }
+}
