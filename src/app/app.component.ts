@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'storefront';
+  constructor(private userService: UserService, private auth: AuthService){
+    auth.user$.subscribe(user => {
+      if(user) {
+        this.userService.save(user);
+      }
+    })
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'nav-bar',
@@ -6,16 +7,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
-  username: string;
+export class NavBarComponent {
 
-
-  constructor() { 
-    this.username = "Username";
+  constructor(public authService: AuthService) { 
   }
 
-  ngOnInit(): void {
-
+  logout(){
+    this.authService.logout();
   }
+
+
 
 }

@@ -5,15 +5,17 @@
             <a routerLink="/" class="navbar-brand" aria-current="page" >O</a>
         <li class="nav-item"></li>
             <a routerLink="/shopping-cart" class="nav-link active" aria-current="page">Shopping Cart</a>
-        <li class="nav-item"></li>
-            <a routerLink="/login" class="nav-link">Login</a>
+        <ng-template #notUser> 
+            <li class="nav-item"></li>
+                <a routerLink="/login" class="nav-link">Login</a>
+        </ng-template>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{{ username }}</a>
+            <a class="nav-link dropdown-toggle" *ngIf="authService.user$ | async as user; else notUser" data-bs-toggle="dropdown" role="button" aria-expanded="false">{{user?.displayName}}</a>
             <ul class="dropdown-menu">
                 <li><a routerLink="/my/orders"class="dropdown-item">My Orders</a></li>
                 <li><a routerLink="/admin/orders"class="dropdown-item">Manage Orders</a></li>
                 <li><a routerLink="/admin/products"class="dropdown-item">Manage Products</a></li>
-                <li class="dropdown-item">Log Out</li>
+                <li class="dropdown-item" (click) = "logout()">Log Out</li>
             </ul>
         </li>
 
