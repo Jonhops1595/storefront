@@ -33,9 +33,9 @@ export class AuthService {
     this.auth.signOut();
   }
 
-  get appUser$() : Observable<AppUser> {
+  get appUser$() : Observable<AppUser | null> {
     return this.user$.pipe(
-      switchMap(user => this.userService.get(user.uid).valueChanges() as Observable<AppUser>),
+      switchMap(user => this.userService.get(user.uid).valueChanges()),
     )
   }
 }

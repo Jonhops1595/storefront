@@ -9,7 +9,7 @@ import { AppUser } from '../models/app-user';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  appUser: AppUser;
+  appUser: AppUser | null = null;
 
   constructor(public authService: AuthService) { 
     authService.appUser$.subscribe(appUser => this.appUser = appUser);
