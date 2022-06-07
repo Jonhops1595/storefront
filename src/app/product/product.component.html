@@ -1,0 +1,41 @@
+<form action="">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="titleInput">Title</label>
+                <br>
+                <input type="text" class="form-control" id="titleInput">
+            </div>
+
+            <div class="form-group input-group">
+                <label for="priceInput">Price</label>
+                <br>
+                <span class="input-group-text">$</span>
+                <input type="text" class="form-control" id="priceInput">
+            </div>
+
+            <div class="form-group">
+                <label for="dropdownButton">Category</label>
+                <br>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown" aria-expanded="false">Category Button</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownButton">
+                        <li><a class="dropdown-item" *ngFor="let category of categories" href="#">{{ category }}</a></li>
+                    </ul>
+            </div>
+
+            <div class="form-group">
+                <label for="imageURLInput">Image</label>
+                <input type="text" class="form-control" id="imageURLInput">
+            </div>
+        </div>
+
+        <div class="card col" style="width: 200px">
+            <img [src] = imageURL  class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-body">Price</p>
+            </div>
+        </div>
+    </div>
+
+</form>

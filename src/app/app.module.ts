@@ -26,6 +26,7 @@ import { FirestoreTestComponent } from './firestore-test/firestore-test.componen
 import { UserService } from 'src/services/user.service';
 import { AdminAuthGuard } from 'src/services/admin-auth-guard.service';
 import { CanActivate } from '@angular/router';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -41,7 +42,7 @@ const routes: Routes = [
   {path: 'shopping-cart', component:ShoppingCartComponent, ...canActivate(redirectUnauthorizedToLogin)},
   {path: 'my/orders', component:MyOrdersComponent, ...canActivate(redirectUnauthorizedToLogin)},
   {path: 'admin/orders', component:ManageOrdersComponent, canActivate: [AdminAuthGuard]},
-  {path: 'admin/products', component:ManageProductsComponent, canActivate:[AdminAuthGuard]}
+  {path: 'admin/products', component:ProductComponent, canActivate:[AdminAuthGuard]}
 ];
 
 @NgModule({
@@ -53,7 +54,8 @@ declarations: [
     ManageProductsComponent,
     LoginComponent,
     FirestoreTestComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
