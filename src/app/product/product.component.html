@@ -18,12 +18,14 @@
             <div class="form-group">
                 <label for="dropdownButton">Category</label>
                 <br>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{categoryDropdownName}}
+                </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownButton">
                         <li><button class="dropdown-item" 
                             *ngFor="let category of categories$ | async" 
-                            [value] = "category.key">
-                            {{ category.val?.name }}</button></li>
+                            (click) = "onClickCategory(category.val!.name)">
+                            {{ category.val!.name }}</button></li>
                     </ul>
             </div>
 

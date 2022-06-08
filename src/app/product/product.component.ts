@@ -11,7 +11,7 @@ import { Category } from '../models/category';
 export class ProductComponent implements OnInit {
 
   imageURL = "\\assets\\salami.jpg"
-  categories = ["Breakfast", "Lunch", "Dinner"];
+  categoryDropdownName = "Pick a Category";
   categories$: Observable<{
     key: string | null;
     val: Category | null;
@@ -22,6 +22,10 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onClickCategory(newName:string){
+    this.categoryDropdownName = newName;
   }
 
 }
