@@ -28,6 +28,7 @@ import { AdminAuthGuard } from 'src/services/admin-auth-guard.service';
 import { ProductComponent } from './product/product.component';
 import { CategoryService } from 'src/services/category.service';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from 'src/services/product.service';
 
 
 
@@ -74,7 +75,8 @@ declarations: [
     AuthService,
     AngularFireAuth,
     UserService,
-    CategoryService
+    CategoryService,
+    ProductService
     ],
   bootstrap: [AppComponent]
 })

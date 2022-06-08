@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryService } from 'src/services/category.service';
+import { ProductService } from 'src/services/product.service';
 import { Category } from '../models/category';
 
 @Component({
@@ -10,14 +11,14 @@ import { Category } from '../models/category';
 })
 export class ProductComponent implements OnInit {
 
-  imageURL = "\\assets\\salami.jpg"
+  imageURLString = "\\assets\\salami.jpg"
   categoryDropdownName = "Pick a Category";
   categories$: Observable<{
     key: string | null;
     val: Category | null;
 }[]>;
 
-  constructor(categoryService: CategoryService) { 
+  constructor(categoryService: CategoryService ,private productService: ProductService) { 
     this.categories$ = categoryService.getCategories();
   }
 
@@ -25,7 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   save(product:any){
-    console.log(product);
+    this.productService.create(product);
   }
 
 }

@@ -3,20 +3,26 @@
         <div class="col">
             <div class="form-group">
                 <label for="titleInput">Title</label>
-                <input ngModel name = "title" type="text" class="form-control" id="titleInput">
+                <input #title ="ngModel" ngModel name = "title" type="text" class="form-control" id="titleInput" required>
+                <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                    Title is required.
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="priceInput">Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="priceInput">$</span>
-                    <input ngModel name = "price" type="number" class="form-control">
+                    <input #price = "ngModel" ngModel name = "price" type="number" class="form-control" required>
+                </div>
+                <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+                    Price is required.
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="selectButton">Category</label>
-                <select class="form-select" ngModel name= "category"  id="selectButton"  aria-expanded="false">
+                <select #categoryInput = "ngModel"class="form-select" ngModel name= "category"  id="selectButton"  aria-expanded="false">
                     <option selected></option>
                     <option 
                         *ngFor="let category of categories$ | async"
@@ -24,11 +30,17 @@
                         {{category.val!.name}}
                     </option>
                 </select>
+                <div class="alert alert-danger" *ngIf="categoryInput.touched && categoryInput.invalid">
+                    Category is required.
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="imageURLInput">Image URL</label>
-                <input ngModel name ="imageURL" type="text" class="form-control" id="imageURLInput">
+                <input #imageURL = "ngModel" ngModel name ="imageURL" type="text" class="form-control" id="imageURLInput">
+                <div class="alert alert-danger" *ngIf="imageURL.touched && imageURL.invalid">
+                    ImageURL is required.
+                </div>
             </div>
 
             <button class="btn btn-primary">Save</button>
@@ -36,7 +48,7 @@
         </div>
 
         <div class="card col-md" >
-            <img [src] = imageURL  class="card-img-top">
+            <img [src] = imageURLString  class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">Title</h5>
                 <p class="card-body">Price</p>
