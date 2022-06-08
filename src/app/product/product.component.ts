@@ -12,7 +12,10 @@ export class ProductComponent implements OnInit {
 
   imageURL = "\\assets\\salami.jpg"
   categories = ["Breakfast", "Lunch", "Dinner"];
-  categories$ : Observable<Category[]>;
+  categories$: Observable<{
+    key: string | null;
+    val: Category | null;
+}[]>;
 
   constructor(categoryService: CategoryService) { 
     this.categories$ = categoryService.getCategories();

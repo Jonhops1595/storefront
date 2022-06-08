@@ -22,8 +22,8 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownButton">
                         <li><button class="dropdown-item" 
                             *ngFor="let category of categories$ | async" 
-                            >
-                            {{ category.name }}</button></li>
+                            [value] = "category.key">
+                            {{ category.val?.name }}</button></li>
                     </ul>
             </div>
 
