@@ -25,9 +25,10 @@ import { LoginComponent } from './login/login.component';
 import { FirestoreTestComponent } from './firestore-test/firestore-test.component';
 import { UserService } from 'src/services/user.service';
 import { AdminAuthGuard } from 'src/services/admin-auth-guard.service';
-import { CanActivate } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { CategoryService } from 'src/services/category.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -66,6 +67,7 @@ declarations: [
     RouterModule.forRoot(routes),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [

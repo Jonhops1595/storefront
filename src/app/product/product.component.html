@@ -1,37 +1,34 @@
-<form>
+<form #f="ngForm" (ngSubmit)="save(f.value)">
     <div class="row gy-5">
         <div class="col">
             <div class="form-group">
                 <label for="titleInput">Title</label>
-                <br>
-                <input type="text" class="form-control" id="titleInput">
+                <input ngModel name = "title" type="text" class="form-control" id="titleInput">
             </div>
 
             <div class="form-group">
                 <label for="priceInput">Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="priceInput">$</span>
-                    <input type="number" class="form-control">
+                    <input ngModel name = "price" type="number" class="form-control">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="dropdownButton">Category</label>
-                <br>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{categoryDropdownName}}
-                </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownButton">
-                        <li><button class="dropdown-item" 
-                            *ngFor="let category of categories$ | async" 
-                            (click) = "onClickCategory(category.val!.name)">
-                            {{ category.val!.name }}</button></li>
-                    </ul>
+                <label for="selectButton">Category</label>
+                <select class="form-select" ngModel name= "category"  id="selectButton"  aria-expanded="false">
+                    <option selected></option>
+                    <option 
+                        *ngFor="let category of categories$ | async"
+                        [value] = "category.key">
+                        {{category.val!.name}}
+                    </option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="imageURLInput">Image URL</label>
-                <input type="text" class="form-control" id="imageURLInput">
+                <input ngModel name ="imageURL" type="text" class="form-control" id="imageURLInput">
             </div>
 
             <button class="btn btn-primary">Save</button>

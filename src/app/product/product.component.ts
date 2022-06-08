@@ -24,8 +24,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickCategory(newName:string){
-    this.categoryDropdownName = newName;
+  save(product:any){
+    console.log(product);
   }
 
 }
