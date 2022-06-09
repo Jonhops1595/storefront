@@ -29,6 +29,7 @@ import { ProductComponent } from './product/product.component';
 import { CategoryService } from 'src/services/category.service';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from 'src/services/product.service';
+import { PriceValidatorDirective } from './product/priceValidator';
 
 
 
@@ -58,7 +59,8 @@ declarations: [
     LoginComponent,
     FirestoreTestComponent,
     ShoppingCartComponent,
-    ProductComponent
+    ProductComponent,
+    PriceValidatorDirective
   ],
   imports: [
     BrowserModule,

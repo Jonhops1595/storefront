@@ -13,16 +13,22 @@
                 <label for="priceInput">Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="priceInput">$</span>
-                    <input #price = "ngModel" ngModel name = "price" type="number" class="form-control" required>
+                    <input #price = "ngModel" ngModel name = "price" type="number" class="form-control" required PriceValidator>
                 </div>
                 <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-                    Price is required.
+                    <div class="alert alert-danger" *ngIf="price.errors?.['required']" >
+                        Price is required.
+                    </div>
+                    
+                    <div class="alert alert-danger" *ngIf="price.errors?.['invalidPrice']">
+                        Price is negative
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="selectButton">Category</label>
-                <select #categoryInput = "ngModel"class="form-select" ngModel name= "category"  id="selectButton"  aria-expanded="false">
+                <select #categoryInput = "ngModel"class="form-select" ngModel name= "category"  id="selectButton"  aria-expanded="false" required>
                     <option selected></option>
                     <option 
                         *ngFor="let category of categories$ | async"
@@ -37,10 +43,18 @@
 
             <div class="form-group">
                 <label for="imageURLInput">Image URL</label>
-                <input #imageURL = "ngModel" ngModel name ="imageURL" type="text" class="form-control" id="imageURLInput">
+                <input #imageURL = "ngModel" ngModel name ="imageURL" type="text" class="form-control" id="imageURLInput" 
+                URLValidator required>
                 <div class="alert alert-danger" *ngIf="imageURL.touched && imageURL.invalid">
-                    ImageURL is required.
-                </div>
+                    <div class="alert alert-danger" *ngIf="imageURL.errors?.['required']" >
+                        URL is required.
+                    </div>
+                    
+                    <div class="alert alert-danger" *ngIf="imageURL.errors?.['pattern']">
+                        URL is invalid pattern.
+                    </div>
+
+                </div>  
             </div>
 
             <button class="btn btn-primary">Save</button>
