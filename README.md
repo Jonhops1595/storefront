@@ -1,5 +1,9 @@
 # Storefront
 
+A mock ecommerce storefront  
+Project created in Summer 2022 to learn Angular and Typescript
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
 ## Development server
